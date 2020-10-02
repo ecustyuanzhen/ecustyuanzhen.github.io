@@ -1,15 +1,16 @@
 ---
 title: Quick Start
+---
 Welcome to [Hexo][1]! This is your very first post. Check [documentation][2] for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting][3] or you can ask me on [GitHub][4].
 
 ## Quick Start
-### Install 
+### Install
 1. Make sure have install `git` [node][5]
 2. 安装hexo  `npm install -g hexo-cli`
 3. 安装部署插件 `npm install --save hexo-deployer-git`
 
 ### Config
-编辑 zx-hexo 目录下的 _config.yml 
+编辑 zx-hexo 目录下的 \_config.yml 
 ```xml
 deploy:
   type: git
@@ -39,7 +40,7 @@ More info: [Server][7]
 $ hexo generate
 ```
 
-* additional: remember push origin before deploy 
+* additional: remember push origin before deploy
 More info: [Generating][8]
 
 ### Deploy to remote sites
