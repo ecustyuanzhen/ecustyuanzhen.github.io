@@ -2,7 +2,7 @@
 
 git add . &&
 git commit -a -m "update" &&
-git push origin "$(git_current_branch)" &&
+git push origin source &&
 hexo g &&
 hexo d
 
