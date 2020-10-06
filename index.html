@@ -64,6 +64,115 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-factory" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/10/06/factory/" class="article-date">
+  <time datetime="2020-10-06T12:36:57.000Z" itemprop="datePublished">2020-10-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/10/06/factory/">设计模式-工厂模式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h3><h4 id="介绍："><a href="#介绍：" class="headerlink" title="介绍："></a>介绍：</h4><p><code>通过一个工厂类决定产生哪种产品，基本实现是根据传入的参数通过反射或者判断，动态决定应该创建哪一个产品类（这些产品类继承自一个父类或接口）的实例。</code></p>
+<h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h4><ul>
+<li>由于工厂类集中了所有实例的创建逻辑，违反了高内聚责任分配原则，将全部创建逻辑集中到了一个工厂类中；</li>
+<li>新增类型需要修改已有代码，违法开闭原则，扩展较差。<h3 id="工厂方法"><a href="#工厂方法" class="headerlink" title="工厂方法"></a>工厂方法</h3><h4 id="介绍：-1"><a href="#介绍：-1" class="headerlink" title="介绍："></a>介绍：</h4>与简单工厂模式的区别：简单工厂模式只有一个工厂，工厂方法模式对每一个产品都有相应的工厂。<br><a target="_blank" rel="noopener" href="https://user-gold-cdn.xitu.io/2017/3/2/907c982a4cefea5c44c612dafe09cc28?imageslim">img</a><h4 id="缺点：-1"><a href="#缺点：-1" class="headerlink" title="缺点："></a>缺点：</h4>工厂方法只是把简单工厂的内部逻辑判断移到了客户端进行。<h3 id="抽象工厂"><a href="#抽象工厂" class="headerlink" title="抽象工厂"></a>抽象工厂</h3><h4 id="对比："><a href="#对比：" class="headerlink" title="对比："></a>对比：</h4>工厂方法模式：</li>
+<li>一个抽象产品类，可以派生出多个具体产品类。</li>
+<li>一个抽象工厂类，可以派生出多个具体工厂类。 </li>
+<li>每个具体工厂类只能创建一个具体产品类的实例。</li>
+</ul>
+<p>抽象工厂模式：</p>
+<ul>
+<li>多个抽象产品类，每个抽象产品类可以派生出多个具体产品类。</li>
+<li>一个抽象工厂类，可以派生出多个具体工厂类。</li>
+<li>每个具体工厂类可以创建多个具体产品类的实例。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/10/06/factory/" data-id="ckfxz953l0000nqm0dc4c4vhk" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/10/06/hello-world/" class="article-date">
+  <time datetime="2020-10-06T12:35:35.218Z" itemprop="datePublished">2020-10-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/10/06/hello-world/">Quick Start</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><ol>
+<li>Make sure have install <code>git</code> <a target="_blank" rel="noopener" href="https://nodejs.org/en/download/">node</a></li>
+<li>安装hexo  <code>npm install -g hexo-cli</code></li>
+<li>安装部署插件 <code>npm install --save hexo-deployer-git</code></li>
+</ol>
+<h3 id="Config"><a href="#Config" class="headerlink" title="Config"></a>Config</h3><p>编辑 zx-hexo 目录下的 _config.yml </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:ecustyuanzhen/ecustyuanzhen.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new &quot;My New Post&quot;</span><br></pre></td></tr></table></figure>
+<p>或者拷贝文件到<code>source/_posts</code><br>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><p>you can skip this step if you want show in origin server</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>additional: remember push origin before deploy<br>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></li>
+</ul>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/10/06/hello-world/" data-id="ckfxz953r0001nqm066ze4myo" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-strgety" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/10/02/strgety/" class="article-date">
@@ -99,66 +208,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/02/strgety/" data-id="ckfsavdz90000akm0g6dkfd60" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/10/02/hello-world/" class="article-date">
-  <time datetime="2020-10-02T05:46:32.996Z" itemprop="datePublished">2020-10-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/02/hello-world/">Quick Start</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><ol>
-<li>Make sure have install <code>git</code> <a target="_blank" rel="noopener" href="https://nodejs.org/en/download/">node</a></li>
-<li>安装hexo  <code>npm install -g hexo-cli</code></li>
-<li>安装部署插件 <code>npm install --save hexo-deployer-git</code></li>
-</ol>
-<h3 id="Config"><a href="#Config" class="headerlink" title="Config"></a>Config</h3><p>编辑 zx-hexo 目录下的 _config.yml </p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:ecustyuanzhen/ecustyuanzhen.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-
-<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new &quot;My New Post&quot;</span><br></pre></td></tr></table></figure>
-<p>或者拷贝文件到<code>source/_posts</code><br>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><p>you can skip this step if you want show in origin server</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>additional: remember push origin before deploy<br>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></li>
-</ul>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/02/hello-world/" data-id="ckfrtsj6c0000umm0alldemk5" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/10/02/strgety/" data-id="ckfxz953u0002nqm019z3bg9s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -199,11 +249,15 @@
       <ul>
         
           <li>
-            <a href="/2020/10/02/strgety/">设计模式-策略模式</a>
+            <a href="/2020/10/06/factory/">设计模式-工厂模式</a>
           </li>
         
           <li>
-            <a href="/2020/10/02/hello-world/">Quick Start</a>
+            <a href="/2020/10/06/hello-world/">Quick Start</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/02/strgety/">设计模式-策略模式</a>
           </li>
         
       </ul>
