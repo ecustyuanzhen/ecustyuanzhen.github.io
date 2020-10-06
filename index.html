@@ -89,16 +89,25 @@
         <h3 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h3><h4 id="介绍："><a href="#介绍：" class="headerlink" title="介绍："></a>介绍：</h4><p><code>通过一个工厂类决定产生哪种产品，基本实现是根据传入的参数通过反射或者判断，动态决定应该创建哪一个产品类（这些产品类继承自一个父类或接口）的实例。</code></p>
 <h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h4><ul>
 <li>由于工厂类集中了所有实例的创建逻辑，违反了高内聚责任分配原则，将全部创建逻辑集中到了一个工厂类中；</li>
-<li>新增类型需要修改已有代码，违法开闭原则，扩展较差。<h3 id="工厂方法"><a href="#工厂方法" class="headerlink" title="工厂方法"></a>工厂方法</h3><h4 id="介绍：-1"><a href="#介绍：-1" class="headerlink" title="介绍："></a>介绍：</h4>与简单工厂模式的区别：简单工厂模式只有一个工厂，工厂方法模式对每一个产品都有相应的工厂。<br><a target="_blank" rel="noopener" href="https://user-gold-cdn.xitu.io/2017/3/2/907c982a4cefea5c44c612dafe09cc28?imageslim">img</a><h4 id="缺点：-1"><a href="#缺点：-1" class="headerlink" title="缺点："></a>缺点：</h4>工厂方法只是把简单工厂的内部逻辑判断移到了客户端进行。<h3 id="抽象工厂"><a href="#抽象工厂" class="headerlink" title="抽象工厂"></a>抽象工厂</h3><h4 id="对比："><a href="#对比：" class="headerlink" title="对比："></a>对比：</h4>工厂方法模式：</li>
-<li>一个抽象产品类，可以派生出多个具体产品类。</li>
+<li>新增类型需要修改已有代码，违法开闭原则，扩展较差。</li>
+</ul>
+<h3 id="工厂方法"><a href="#工厂方法" class="headerlink" title="工厂方法"></a>工厂方法</h3><h4 id="介绍：-1"><a href="#介绍：-1" class="headerlink" title="介绍："></a>介绍：</h4><p>与简单工厂模式的区别：简单工厂模式只有一个工厂，工厂方法模式对每一个产品都有相应的工厂。<br><a target="_blank" rel="noopener" href="https://user-gold-cdn.xitu.io/2017/3/2/907c982a4cefea5c44c612dafe09cc28?imageslim">img</a></p>
+<h4 id="缺点：-1"><a href="#缺点：-1" class="headerlink" title="缺点："></a>缺点：</h4><p>工厂方法只是把简单工厂的内部逻辑判断移到了客户端进行。</p>
+<h3 id="抽象工厂"><a href="#抽象工厂" class="headerlink" title="抽象工厂"></a>抽象工厂</h3><h4 id="对比："><a href="#对比：" class="headerlink" title="对比："></a>对比：</h4><p>工厂方法模式：</p>
+<ul>
+<li>一个抽象产品类，可以派生出多个具体产品类。<ul>
 <li>一个抽象工厂类，可以派生出多个具体工厂类。 </li>
 <li>每个具体工厂类只能创建一个具体产品类的实例。</li>
 </ul>
+</li>
+</ul>
 <p>抽象工厂模式：</p>
 <ul>
-<li>多个抽象产品类，每个抽象产品类可以派生出多个具体产品类。</li>
+<li>多个抽象产品类，每个抽象产品类可以派生出多个具体产品类。<ul>
 <li>一个抽象工厂类，可以派生出多个具体工厂类。</li>
 <li>每个具体工厂类可以创建多个具体产品类的实例。</li>
+</ul>
+</li>
 </ul>
 
       
