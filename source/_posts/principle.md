@@ -1,5 +1,5 @@
 ---
-title: principle
+title: 设计模式-指导原则
 date: 2020-10-09 11:06:06
 tags: #设计模式 #java
 ---
