@@ -64,6 +64,87 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-principle" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/10/09/principle/" class="article-date">
+  <time datetime="2020-10-09T03:06:06.000Z" itemprop="datePublished">2020-10-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/10/09/principle/">principle</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="单一职责原则-SRP-Single-Responsibility-Principle"><a href="#单一职责原则-SRP-Single-Responsibility-Principle" class="headerlink" title="单一职责原则(SRP, Single Responsibility Principle)"></a>单一职责原则(SRP, Single Responsibility Principle)</h4><ul>
+<li><p>核心</p>
+<p>每个类都应该有一个单一的功能，并且该功能应该由这个类完全封装起来。也就是高内聚。</p>
+</li>
+</ul>
+<ul>
+<li><p>好处</p>
+<p>类的复杂度降低了，可以快速的帮我们定位到具体哪个类可以实现这个功能。</p>
+</li>
+</ul>
+<h4 id="开闭原则"><a href="#开闭原则" class="headerlink" title="开闭原则"></a>开闭原则</h4><ul>
+<li><p>核心<br>软件中的对象（类，模块，函数等等）应该对于扩展（提供方）是开放的，但是对于修改（使用方）是封闭的。尽量通过扩展软件实体来解决业务需求的变动，而不是修改已有代码。</p>
+</li>
+<li><p>注意</p>
+<p>开放-封闭原则是面向对象设计的核心所在。  应该仅对程序中出现频繁变化的部分进行抽象，但决不要对每个部分进行抽象。拒绝不成熟的抽象与抽象本身一样重要。</p>
+</li>
+</ul>
+<h4 id="依赖倒转原则-DIP-Dependence-Inversion-Principle"><a href="#依赖倒转原则-DIP-Dependence-Inversion-Principle" class="headerlink" title="依赖倒转原则(DIP,Dependence Inversion Principle)"></a>依赖倒转原则(DIP,Dependence Inversion Principle)</h4><ul>
+<li><p>核心</p>
+<p>针对接口编程而不是实现，抽象不应依赖细节，细节依赖抽象，高层不应该依赖底层，而是依赖抽象。</p>
+</li>
+</ul>
+<h4 id="里氏替换原则"><a href="#里氏替换原则" class="headerlink" title="里氏替换原则"></a>里氏替换原则</h4><ul>
+<li><p>核心</p>
+<p>所有引用基类的地方必须能透明的使用其他子类，故子类尽量不要重写父类方法。</p>
+</li>
+<li><p>注意</p>
+<p>如果子类不能完整地实现父类的方法，或者父类中的某些方法在基类中已经发生“畸变”，则建议“断开”使用父子继承关系，而采用依赖、聚合、组合等关系。</p>
+</li>
+</ul>
+<h4 id="接口隔离原则-ISP-Interface-Segregation-Principle"><a href="#接口隔离原则-ISP-Interface-Segregation-Principle" class="headerlink" title="接口隔离原则(ISP,Interface Segregation Principle)"></a>接口隔离原则(ISP,Interface Segregation Principle)</h4><ul>
+<li><p>核心</p>
+<p>客户端不应该强行依赖它不需要的接口，类与类之间的依赖关系应该建立在最小的接口上。</p>
+</li>
+</ul>
+<h4 id="迪米特法则-LoD-Law-of-Demeter"><a href="#迪米特法则-LoD-Law-of-Demeter" class="headerlink" title="迪米特法则(LoD,Law of Demeter)"></a>迪米特法则(LoD,Law of Demeter)</h4><ul>
+<li><p>核心</p>
+<p>也叫最少知识原则(LKP,Least Knowledge Principle)，如果两个类不必彼此之间直接通信，那么这两个类就不应该发生直接的相互作用。强调了类之间的松耦合。类之间的耦合越弱，越利于复用。</p>
+</li>
+</ul>
+<h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><ol>
+<li>分析系统中变化的与不变的部分</li>
+<li>针对接口编程</li>
+<li>松耦合</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/10/09/principle/" data-id="ckg1pfpdp0000gim0cyiq1yzd" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-factory" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/10/06/factory/" class="article-date">
@@ -256,6 +337,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2020/10/09/principle/">principle</a>
+          </li>
         
           <li>
             <a href="/2020/10/06/factory/">设计模式-工厂模式</a>
