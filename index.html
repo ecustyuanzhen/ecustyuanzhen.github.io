@@ -64,6 +64,52 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-principle-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/10/19/principle-1/" class="article-date">
+  <time datetime="2020-10-19T06:27:24.000Z" itemprop="datePublished">2020-10-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/10/19/principle-1/">设计模式-责任链模式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h4><p>将多个处理对象串成链，可以让每一个对象都处理请求，也可以在某一个处理完后就结束流程，避免请求发送者与接收者耦合在一起。</p>
+<h4 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h4><p><img src="https://user-gold-cdn.xitu.io/2018/10/31/166c90b265849954?imageslim"></p>
+<h4 id="多种形式"><a href="#多种形式" class="headerlink" title="多种形式"></a>多种形式</h4><ul>
+<li>客户端通过list  将handler串起来。</li>
+<li>handler 通过next指针指定下一个handler</li>
+<li>每个Handler都有机会处理Request，通常这种责任链被称为拦截器（Interceptor）或者过滤器（Filter）<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4></li>
+<li>一个请求可能因职责链没有被正确配置而得不到处理</li>
+<li>对于比较长的职责链，请求的处理可能涉及到多个处理对象，系统性能将受到一定影响，且不方便调试</li>
+<li>可能因为职责链创建不当，造成循环调用，导致系统陷入死循环</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/10/19/principle-1/" data-id="ckggckszd0000vem0633zazdw" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-principle" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/10/09/principle/" class="article-date">
@@ -337,6 +383,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2020/10/19/principle-1/">设计模式-责任链模式</a>
+          </li>
         
           <li>
             <a href="/2020/10/09/principle/">设计模式-指导原则</a>
