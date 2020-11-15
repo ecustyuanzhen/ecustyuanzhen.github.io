@@ -5,15 +5,21 @@
   
 
   
-  <title>Archives: 2020/11 | Hexo</title>
+  <title>设计模式-桥接模式 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/2020/11/index.html">
+  <meta name="description" content="是什么 将抽象部分与它的实现部分分离，使它们都可以独立地变化。更容易理解的表述是：实现系统可从多种维度分类，桥接模式将各维度抽象出来，各维度独立变化，之后可通过聚合，将各维度组合起来，减少了各维度间的耦合。  解决的问题在类型存在多维度发展的情况，会出现类爆炸的趋势，桥接模式将各个维度设计成独立的继承结构，使各个维度可以独立的扩展在抽象层建立关联。 类图">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式-桥接模式">
+<meta property="og:url" content="http://example.com/2020/11/15/principle-bridge/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="是什么 将抽象部分与它的实现部分分离，使它们都可以独立地变化。更容易理解的表述是：实现系统可从多种维度分类，桥接模式将各维度抽象出来，各维度独立变化，之后可通过聚合，将各维度组合起来，减少了各维度间的耦合。  解决的问题在类型存在多维度发展的情况，会出现类爆炸的趋势，桥接模式将各个维度设计成独立的继承结构，使各个维度可以独立的扩展在抽象层建立关联。 类图">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://www.jasongj.com/img/designpattern/bridge/Bridge.png">
+<meta property="article:published_time" content="2020-11-15T14:35:06.000Z">
+<meta property="article:modified_time" content="2020-11-15T14:51:25.732Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.jasongj.com/img/designpattern/bridge/Bridge.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -62,78 +68,56 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/11/15/principle-bridge/" class="archive-article-date">
-  <time datetime="2020-11-15T14:35:06.000Z" itemprop="datePublished">Nov 15</time>
+        <section id="main"><article id="post-principle-bridge" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/15/principle-bridge/" class="article-date">
+  <time datetime="2020-11-15T14:35:06.000Z" itemprop="datePublished">2020-11-15</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/15/principle-bridge/">设计模式-桥接模式</a>
+    <h1 class="article-title" itemprop="name">
+      设计模式-桥接模式
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/11/15/principle-adapter/" class="archive-article-date">
-  <time datetime="2020-11-15T13:47:25.000Z" itemprop="datePublished">Nov 15</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/15/principle-adapter/">设计模式-适配器模式</a>
-    </h1>
-  
+        <h3 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h3><blockquote>
+<p>将抽象部分与它的实现部分分离，使它们都可以独立地变化。更容易理解的表述是：实现系统可从多种维度分类，桥接模式将各维度抽象出来，各维度独立变化，之后可通过聚合，将各维度组合起来，减少了各维度间的耦合。</p>
+</blockquote>
+<h3 id="解决的问题"><a href="#解决的问题" class="headerlink" title="解决的问题"></a>解决的问题</h3><p>在类型存在多维度发展的情况，会出现类爆炸的趋势，<strong>桥接模式</strong>将各个维度设计成独立的继承结构，使各个维度可以独立的扩展在抽象层建立关联。</p>
+<h3 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h3><p><img src="http://www.jasongj.com/img/designpattern/bridge/Bridge.png" alt="img"></p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/11/15/principle-builder/" class="archive-article-date">
-  <time datetime="2020-11-15T06:31:25.000Z" itemprop="datePublished">Nov 15</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/15/principle-builder/">设计模式-建造者模式</a>
-    </h1>
-  
-
-    </header>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/11/15/principle-bridge/" data-id="ckhj8m2sr0000fym06bvv9pjx" class="article-share-link">Share</a>
+      
+      
+    </footer>
   </div>
-</article>
+  
+    
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/11/15/principle-adapter/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">设计模式-适配器模式</div>
+    </a>
   
+</nav>
 
+  
+</article>
 
 </section>
         

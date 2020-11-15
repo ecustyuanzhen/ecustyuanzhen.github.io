@@ -5,19 +5,21 @@
   
 
   
-  <title>设计模式-装饰器模式 | Hexo</title>
+  <title>设计模式-适配器模式 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="是什么当我们想增强类的功能的时候，不想通过创建子类来扩展，可以通过装饰器模式实现，被认为是继承的替代方案。 类图image 优点功能可以灵活的绑定与删除装饰类和被装饰类充分解藕 缺点过多的组合会使得代码看起来混乱，排查问题比较困难">
+  <meta name="description" content="是什么适配器模式把一个类的接口变换成客户端所期待的另一种接口，从而使原本因接口不匹配而无法在一起工作的两个类能够在一起工作。  两种形式1. 类适配器创建新类，继承源类，同时还要实现新接口 1class  adapter extends oldClass implements newFunc&amp;#123;&amp;#125;  2. 对象适配器创建新类的实例，其中包含旧的类，并实现新接口 1class ad">
 <meta property="og:type" content="article">
-<meta property="og:title" content="设计模式-装饰器模式">
-<meta property="og:url" content="http://example.com/2020/10/25/principle-decorator/index.html">
+<meta property="og:title" content="设计模式-适配器模式">
+<meta property="og:url" content="http://example.com/2020/11/15/principle-adapter/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="是什么当我们想增强类的功能的时候，不想通过创建子类来扩展，可以通过装饰器模式实现，被认为是继承的替代方案。 类图image 优点功能可以灵活的绑定与删除装饰类和被装饰类充分解藕 缺点过多的组合会使得代码看起来混乱，排查问题比较困难">
+<meta property="og:description" content="是什么适配器模式把一个类的接口变换成客户端所期待的另一种接口，从而使原本因接口不匹配而无法在一起工作的两个类能够在一起工作。  两种形式1. 类适配器创建新类，继承源类，同时还要实现新接口 1class  adapter extends oldClass implements newFunc&amp;#123;&amp;#125;  2. 对象适配器创建新类的实例，其中包含旧的类，并实现新接口 1class ad">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-10-25T14:14:36.000Z">
-<meta property="article:modified_time" content="2020-10-25T14:29:37.210Z">
+<meta property="og:image" content="https://pic3.zhimg.com/v2-b2e8ef1c763884ea59bd87e53f791a4e_r.jpg">
+<meta property="article:published_time" content="2020-11-15T13:47:25.000Z">
+<meta property="article:modified_time" content="2020-11-15T14:06:17.568Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic3.zhimg.com/v2-b2e8ef1c763884ea59bd87e53f791a4e_r.jpg">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -66,10 +68,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-principle-decorator" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-principle-adapter" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/10/25/principle-decorator/" class="article-date">
-  <time datetime="2020-10-25T14:14:36.000Z" itemprop="datePublished">2020-10-25</time>
+    <a href="/2020/11/15/principle-adapter/" class="article-date">
+  <time datetime="2020-11-15T13:47:25.000Z" itemprop="datePublished">2020-11-15</time>
 </a>
     
   </div>
@@ -80,7 +82,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      设计模式-装饰器模式
+      设计模式-适配器模式
     </h1>
   
 
@@ -88,15 +90,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h3><p>当我们想增强类的功能的时候，不想通过创建子类来扩展，可以通过装饰器模式实现，被认为是继承的替代方案。</p>
-<h3 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h3><p><a target="_blank" rel="noopener" href="https://www.runoob.com/wp-content/uploads/2014/08/20201015-decorator.svg">image</a></p>
-<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p>功能可以灵活的绑定与删除<br>装饰类和被装饰类充分解藕</p>
-<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><p>过多的组合会使得代码看起来混乱，排查问题比较困难</p>
+        <h3 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h3><p>适配器模式把一个类的接口变换成客户端所期待的另一种接口，从而<strong>使原本因接口不匹配而无法在一起工作的两个类能够在一起工作</strong>。</p>
+<p><img src="https://pic3.zhimg.com/v2-b2e8ef1c763884ea59bd87e53f791a4e_r.jpg" alt="preview"></p>
+<h3 id="两种形式"><a href="#两种形式" class="headerlink" title="两种形式"></a>两种形式</h3><h3 id="1-类适配器"><a href="#1-类适配器" class="headerlink" title="1. 类适配器"></a><strong>1. 类适配器</strong></h3><p>创建新类，继承源类，同时还要实现新接口</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class  adapter extends oldClass implements newFunc&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-对象适配器"><a href="#2-对象适配器" class="headerlink" title="2. 对象适配器"></a><strong>2. 对象适配器</strong></h3><p>创建新类的实例，其中包含旧的类，并实现新接口</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class adapter implements newFunc &#123; private oldClass oldInstance ;&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>类适配器使用<strong>对象继承</strong>的方式，是静态的定义方式</li>
+<li>对象适配器使用<strong>对象组合</strong>的方式，是动态组合的方式。</li>
+</ul>
+<h3 id="知名产品"><a href="#知名产品" class="headerlink" title="知名产品"></a>知名产品</h3><ul>
+<li>jdbc</li>
+</ul>
+<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><ul>
+<li>将目标类和适配者类解耦，而无须修改原有代码。</li>
+<li>对于客户端类来说是透明的，而且提高了适配者的复用性。</li>
+<li>不足之处<strong>过多的使用适配器，会让系统非常零乱，不易整体进行把握</strong>。</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/25/principle-decorator/" data-id="ckgp7mvh200005cm01orpby7o" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/15/principle-adapter/" data-id="ckhj8m2sw0001fym01rlldptn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -105,19 +123,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/11/15/principle-builder/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/11/15/principle-bridge/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          设计模式-建造者模式
+          设计模式-桥接模式
         
       </div>
     </a>
   
   
-    <a href="/2020/10/19/principle-1/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/11/15/principle-builder/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">设计模式-责任链模式</div>
+      <div class="article-nav-title">设计模式-建造者模式</div>
     </a>
   
 </nav>

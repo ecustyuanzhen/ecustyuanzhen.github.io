@@ -64,6 +64,103 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-principle-bridge" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/15/principle-bridge/" class="article-date">
+  <time datetime="2020-11-15T14:35:06.000Z" itemprop="datePublished">2020-11-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/15/principle-bridge/">设计模式-桥接模式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h3><blockquote>
+<p>将抽象部分与它的实现部分分离，使它们都可以独立地变化。更容易理解的表述是：实现系统可从多种维度分类，桥接模式将各维度抽象出来，各维度独立变化，之后可通过聚合，将各维度组合起来，减少了各维度间的耦合。</p>
+</blockquote>
+<h3 id="解决的问题"><a href="#解决的问题" class="headerlink" title="解决的问题"></a>解决的问题</h3><p>在类型存在多维度发展的情况，会出现类爆炸的趋势，<strong>桥接模式</strong>将各个维度设计成独立的继承结构，使各个维度可以独立的扩展在抽象层建立关联。</p>
+<h3 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h3><p><img src="http://www.jasongj.com/img/designpattern/bridge/Bridge.png" alt="img"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/11/15/principle-bridge/" data-id="ckhj8m2sr0000fym06bvv9pjx" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-principle-adapter" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/15/principle-adapter/" class="article-date">
+  <time datetime="2020-11-15T13:47:25.000Z" itemprop="datePublished">2020-11-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/15/principle-adapter/">设计模式-适配器模式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h3><p>适配器模式把一个类的接口变换成客户端所期待的另一种接口，从而<strong>使原本因接口不匹配而无法在一起工作的两个类能够在一起工作</strong>。</p>
+<p><img src="https://pic3.zhimg.com/v2-b2e8ef1c763884ea59bd87e53f791a4e_r.jpg" alt="preview"></p>
+<h3 id="两种形式"><a href="#两种形式" class="headerlink" title="两种形式"></a>两种形式</h3><h3 id="1-类适配器"><a href="#1-类适配器" class="headerlink" title="1. 类适配器"></a><strong>1. 类适配器</strong></h3><p>创建新类，继承源类，同时还要实现新接口</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class  adapter extends oldClass implements newFunc&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-对象适配器"><a href="#2-对象适配器" class="headerlink" title="2. 对象适配器"></a><strong>2. 对象适配器</strong></h3><p>创建新类的实例，其中包含旧的类，并实现新接口</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class adapter implements newFunc &#123; private oldClass oldInstance ;&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>类适配器使用<strong>对象继承</strong>的方式，是静态的定义方式</li>
+<li>对象适配器使用<strong>对象组合</strong>的方式，是动态组合的方式。</li>
+</ul>
+<h3 id="知名产品"><a href="#知名产品" class="headerlink" title="知名产品"></a>知名产品</h3><ul>
+<li>jdbc</li>
+</ul>
+<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><ul>
+<li>将目标类和适配者类解耦，而无须修改原有代码。</li>
+<li>对于客户端类来说是透明的，而且提高了适配者的复用性。</li>
+<li>不足之处<strong>过多的使用适配器，会让系统非常零乱，不易整体进行把握</strong>。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/11/15/principle-adapter/" data-id="ckhj8m2sw0001fym01rlldptn" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-principle-builder" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/11/15/principle-builder/" class="article-date">
@@ -464,6 +561,14 @@
       <ul>
         
           <li>
+            <a href="/2020/11/15/principle-bridge/">设计模式-桥接模式</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/15/principle-adapter/">设计模式-适配器模式</a>
+          </li>
+        
+          <li>
             <a href="/2020/11/15/principle-builder/">设计模式-建造者模式</a>
           </li>
         
@@ -473,14 +578,6 @@
         
           <li>
             <a href="/2020/10/19/principle-1/">设计模式-责任链模式</a>
-          </li>
-        
-          <li>
-            <a href="/2020/10/09/principle/">设计模式-指导原则</a>
-          </li>
-        
-          <li>
-            <a href="/2020/10/06/factory/">设计模式-工厂模式</a>
           </li>
         
       </ul>
