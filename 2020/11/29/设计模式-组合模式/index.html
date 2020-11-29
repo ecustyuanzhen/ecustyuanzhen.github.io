@@ -5,21 +5,22 @@
   
 
   
-  <title>设计模式-桥接模式 | Hexo</title>
+  <title>设计模式-组合模式 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="是什么 将抽象部分与它的实现部分分离，使它们都可以独立地变化。更容易理解的表述是：实现系统可从多种维度分类，桥接模式将各维度抽象出来，各维度独立变化，之后可通过聚合，将各维度组合起来，减少了各维度间的耦合。  解决的问题在类型存在多维度发展的情况，会出现类爆炸的趋势，桥接模式将各个维度设计成独立的继承结构，使各个维度可以独立的扩展在抽象层建立关联。 类图">
+  <meta name="description" content="是什么组合模式是一种结构型设计模式， 你可以使用它将对象组合成树状结构， 并且能像使用独立对象一样使用它们。 使用意义如果应用的核心模型能用树状结构表示， 在应用中使用组合模式才有价值。 实现 方式一 透明方式，在抽象类中实现基本的方法属性，但是叶子节点也拥有该权限，不安全。      方式二">
 <meta property="og:type" content="article">
-<meta property="og:title" content="设计模式-桥接模式">
-<meta property="og:url" content="http://example.com/2020/11/15/principle-bridge/index.html">
+<meta property="og:title" content="设计模式-组合模式">
+<meta property="og:url" content="http://example.com/2020/11/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="是什么 将抽象部分与它的实现部分分离，使它们都可以独立地变化。更容易理解的表述是：实现系统可从多种维度分类，桥接模式将各维度抽象出来，各维度独立变化，之后可通过聚合，将各维度组合起来，减少了各维度间的耦合。  解决的问题在类型存在多维度发展的情况，会出现类爆炸的趋势，桥接模式将各个维度设计成独立的继承结构，使各个维度可以独立的扩展在抽象层建立关联。 类图">
+<meta property="og:description" content="是什么组合模式是一种结构型设计模式， 你可以使用它将对象组合成树状结构， 并且能像使用独立对象一样使用它们。 使用意义如果应用的核心模型能用树状结构表示， 在应用中使用组合模式才有价值。 实现 方式一 透明方式，在抽象类中实现基本的方法属性，但是叶子节点也拥有该权限，不安全。      方式二">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://www.jasongj.com/img/designpattern/bridge/Bridge.png">
-<meta property="article:published_time" content="2020-11-15T14:35:06.000Z">
-<meta property="article:modified_time" content="2020-11-15T14:51:25.732Z">
+<meta property="og:image" content="http://c.biancheng.net/uploads/allimg/181115/3-1Q1151G62L17.gif">
+<meta property="og:image" content="http://c.biancheng.net/uploads/allimg/181115/3-1Q1151GF5221.gif">
+<meta property="article:published_time" content="2020-11-29T07:22:29.000Z">
+<meta property="article:modified_time" content="2020-11-29T08:06:52.720Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://www.jasongj.com/img/designpattern/bridge/Bridge.png">
+<meta name="twitter:image" content="http://c.biancheng.net/uploads/allimg/181115/3-1Q1151G62L17.gif">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -68,10 +69,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-principle-bridge" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-设计模式-组合模式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/11/15/principle-bridge/" class="article-date">
-  <time datetime="2020-11-15T14:35:06.000Z" itemprop="datePublished">2020-11-15</time>
+    <a href="/2020/11/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/" class="article-date">
+  <time datetime="2020-11-29T07:22:29.000Z" itemprop="datePublished">2020-11-29</time>
 </a>
     
   </div>
@@ -82,7 +83,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      设计模式-桥接模式
+      设计模式-组合模式
     </h1>
   
 
@@ -90,16 +91,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h3><blockquote>
-<p>将抽象部分与它的实现部分分离，使它们都可以独立地变化。更容易理解的表述是：实现系统可从多种维度分类，桥接模式将各维度抽象出来，各维度独立变化，之后可通过聚合，将各维度组合起来，减少了各维度间的耦合。</p>
-</blockquote>
-<h3 id="解决的问题"><a href="#解决的问题" class="headerlink" title="解决的问题"></a>解决的问题</h3><p>在类型存在多维度发展的情况，会出现类爆炸的趋势，<strong>桥接模式</strong>将各个维度设计成独立的继承结构，使各个维度可以独立的扩展在抽象层建立关联。</p>
-<h3 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h3><p><img src="http://www.jasongj.com/img/designpattern/bridge/Bridge.png" alt="img"></p>
+        <h3 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h3><p><strong>组合模式</strong>是一种结构型设计模式， 你可以使用它将对象组合成树状结构， 并且能像使用独立对象一样使用它们。</p>
+<h3 id="使用意义"><a href="#使用意义" class="headerlink" title="使用意义"></a>使用意义</h3><p>如果应用的核心模型能用<strong>树状结构</strong>表示， 在应用中使用组合模式才有价值。</p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><ul>
+<li>方式一<ul>
+<li>透明方式，在抽象类中实现基本的方法属性，但是叶子节点也拥有该权限，不安全。</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://c.biancheng.net/uploads/allimg/181115/3-1Q1151G62L17.gif" alt="透明式的组合模式的结构图"></p>
+<ul>
+<li><p>方式二</p>
+<p><img src="http://c.biancheng.net/uploads/allimg/181115/3-1Q1151GF5221.gif" alt="安全式的组合模式的结构图"></p>
+</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/15/principle-bridge/" data-id="ckhj8m2sr0000fym06bvv9pjx" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/" data-id="cki2ubqke0000oym039ei31oc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -108,19 +118,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/11/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          设计模式-组合模式
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/11/15/principle-adapter/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/11/15/principle-bridge/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">设计模式-适配器模式</div>
+      <div class="article-nav-title">设计模式-桥接模式</div>
     </a>
   
 </nav>
