@@ -64,6 +64,57 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-jvm-内存模型" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/02/10/jvm-%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" class="article-date">
+  <time datetime="2021-02-10T11:21:46.000Z" itemprop="datePublished">2021-02-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/02/10/jvm-%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">jvm-内存模型</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="内存模型"><a href="#内存模型" class="headerlink" title="内存模型"></a>内存模型</h4><p><img src="https://pic1.zhimg.com/80/v2-354d31865d1fb3362f5a1ca938f9a770_1440w.jpg" alt="img"></p>
+<h5 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h5><p>存放当前执行字节码地址。一个处理器只会执行一条指令，因此多线程切换上下文的时候为了能正确执行下一条指令，各个线程需要独立存储，故这块是<strong>线程私有</strong></p>
+<h5 id="Java虚拟机栈"><a href="#Java虚拟机栈" class="headerlink" title="Java虚拟机栈"></a>Java虚拟机栈</h5><p>线程私有，生命周期和线程一样，描述的是方法运行的内存模型，每个方法在执行的时候都会创建一个<strong>栈帧</strong>用于存储局部变量、动态链接、方法出口等信息。每个方法的执行与结束都对应<strong>栈帧</strong>的入栈、出栈。</p>
+<p>局部变量表存放了各种基本数据类型和对象应用（reference类型），其中64位的long数据会占用2个局部变量（slot）。局部变量表所需的空间在编译期间完成分配，当进去一个方法时，所需的空间是确定的，故当方法递归次数过多的时候存在栈溢出分险。</p>
+<h5 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h5><p>与Java虚拟机栈类似，不同之处在于服务对象是本地方法，不是Java方法。</p>
+<h5 id="Java堆"><a href="#Java堆" class="headerlink" title="Java堆"></a>Java堆</h5><p>绝大部分对象在这里分配，按照垃圾回收模式可将堆分为：eden、survivor</p>
+<h5 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h5><p>线程共享，用户存储虚拟机加载的类、常量、静态变量、编译后的代码数据等，为Java堆的逻辑部分，别名Non-heap 为了和堆区分。通过反射获取到的类型、方法名、字段名称、访问修饰符等信息就是从方法区获取到的。在jdk1.8中也就是Metaspace内存溢出，可以通过参数JVM参数-XX:MetaspaceSize和-XX:MaxMetaspaceSize设置Metaspace的空间大小。jdk1.8后<strong>方法区（Method Area）</strong>被元空间(Metaspace)代替。</p>
+<h5 id="运行时常量池"><a href="#运行时常量池" class="headerlink" title="运行时常量池"></a>运行时常量池</h5><p>方法区的一部分，用于存放编译时的生成的字面量、符号引用，</p>
+<h5 id="对象的创建"><a href="#对象的创建" class="headerlink" title="对象的创建"></a>对象的创建</h5><p>？</p>
+<h5 id="对象的内存布局"><a href="#对象的内存布局" class="headerlink" title="对象的内存布局"></a>对象的内存布局</h5><p>对象头、实例数据、对齐填充。</p>
+<p>对象头：1、对象自身运行时数据，如hashcode、锁标志、gc分代年龄等等。2、类型指针，指向类的元数据。</p>
+<p>实例数据：代码定义的数据，默认分配顺序：long/double、int、short、chart、bytes/boolean、</p>
+<p>对齐空间：占位符，对象的起始地址必须是8的倍数，故对象的存储空间必须是8的倍数，对象头一般是8/16，但是实例数据不一定，故需要对齐空间。</p>
+<h5 id="对象的访问定位"><a href="#对象的访问定位" class="headerlink" title="对象的访问定位"></a>对象的访问定位</h5><h6 id="具柄方式"><a href="#具柄方式" class="headerlink" title="具柄方式"></a>具柄方式</h6><p>reference指向堆中生成句柄池地址，包含实例地址、类型地址。</p>
+<h6 id="直接指针（hotspot）"><a href="#直接指针（hotspot）" class="headerlink" title="直接指针（hotspot）"></a>直接指针（hotspot）</h6><p>reference存放的是对象的地址，对象里面存放到对象类型的指针</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/10/jvm-%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" data-id="ckl3fedns0000aym08yv10dje" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-ThradPoolExecutor" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2021/02/10/ThradPoolExecutor/" class="article-date">
@@ -527,87 +578,6 @@
 
 
   
-    <article id="post-principle" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/10/09/principle/" class="article-date">
-  <time datetime="2020-10-09T03:06:06.000Z" itemprop="datePublished">2020-10-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/09/principle/">设计模式-指导原则</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="单一职责原则-SRP-Single-Responsibility-Principle"><a href="#单一职责原则-SRP-Single-Responsibility-Principle" class="headerlink" title="单一职责原则(SRP, Single Responsibility Principle)"></a>单一职责原则(SRP, Single Responsibility Principle)</h4><ul>
-<li><p>核心</p>
-<p>每个类都应该有一个单一的功能，并且该功能应该由这个类完全封装起来。也就是高内聚。</p>
-</li>
-</ul>
-<ul>
-<li><p>好处</p>
-<p>类的复杂度降低了，可以快速的帮我们定位到具体哪个类可以实现这个功能。</p>
-</li>
-</ul>
-<h4 id="开闭原则"><a href="#开闭原则" class="headerlink" title="开闭原则"></a>开闭原则</h4><ul>
-<li><p>核心<br>软件中的对象（类，模块，函数等等）应该对于扩展（提供方）是开放的，但是对于修改（使用方）是封闭的。尽量通过扩展软件实体来解决业务需求的变动，而不是修改已有代码。</p>
-</li>
-<li><p>注意</p>
-<p>开放-封闭原则是面向对象设计的核心所在。  应该仅对程序中出现频繁变化的部分进行抽象，但决不要对每个部分进行抽象。拒绝不成熟的抽象与抽象本身一样重要。</p>
-</li>
-</ul>
-<h4 id="依赖倒转原则-DIP-Dependence-Inversion-Principle"><a href="#依赖倒转原则-DIP-Dependence-Inversion-Principle" class="headerlink" title="依赖倒转原则(DIP,Dependence Inversion Principle)"></a>依赖倒转原则(DIP,Dependence Inversion Principle)</h4><ul>
-<li><p>核心</p>
-<p>针对接口编程而不是实现，抽象不应依赖细节，细节依赖抽象，高层不应该依赖底层，而是依赖抽象。</p>
-</li>
-</ul>
-<h4 id="里氏替换原则"><a href="#里氏替换原则" class="headerlink" title="里氏替换原则"></a>里氏替换原则</h4><ul>
-<li><p>核心</p>
-<p>所有引用基类的地方必须能透明的使用其他子类，故子类尽量不要重写父类方法。</p>
-</li>
-<li><p>注意</p>
-<p>如果子类不能完整地实现父类的方法，或者父类中的某些方法在基类中已经发生“畸变”，则建议“断开”使用父子继承关系，而采用依赖、聚合、组合等关系。</p>
-</li>
-</ul>
-<h4 id="接口隔离原则-ISP-Interface-Segregation-Principle"><a href="#接口隔离原则-ISP-Interface-Segregation-Principle" class="headerlink" title="接口隔离原则(ISP,Interface Segregation Principle)"></a>接口隔离原则(ISP,Interface Segregation Principle)</h4><ul>
-<li><p>核心</p>
-<p>客户端不应该强行依赖它不需要的接口，类与类之间的依赖关系应该建立在最小的接口上。</p>
-</li>
-</ul>
-<h4 id="迪米特法则-LoD-Law-of-Demeter"><a href="#迪米特法则-LoD-Law-of-Demeter" class="headerlink" title="迪米特法则(LoD,Law of Demeter)"></a>迪米特法则(LoD,Law of Demeter)</h4><ul>
-<li><p>核心</p>
-<p>也叫最少知识原则(LKP,Least Knowledge Principle)，如果两个类不必彼此之间直接通信，那么这两个类就不应该发生直接的相互作用。强调了类之间的松耦合。类之间的耦合越弱，越利于复用。</p>
-</li>
-</ul>
-<h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><ol>
-<li>分析系统中变化的与不变的部分</li>
-<li>针对接口编程</li>
-<li>松耦合</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/10/09/principle/" data-id="ckg1pfpdp0000gim0cyiq1yzd" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -644,6 +614,10 @@
       <ul>
         
           <li>
+            <a href="/2021/02/10/jvm-%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">jvm-内存模型</a>
+          </li>
+        
+          <li>
             <a href="/2021/02/10/ThradPoolExecutor/">ThradPoolExecutor</a>
           </li>
         
@@ -657,10 +631,6 @@
         
           <li>
             <a href="/2020/11/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/">设计模式-组合模式</a>
-          </li>
-        
-          <li>
-            <a href="/2020/11/15/principle-bridge/">设计模式-桥接模式</a>
           </li>
         
       </ul>

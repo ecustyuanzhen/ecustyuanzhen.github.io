@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>jvm-内存模型 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="内存模型 程序计数器存放当前执行字节码地址。一个处理器只会执行一条指令，因此多线程切换上下文的时候为了能正确执行下一条指令，各个线程需要独立存储，故这块是线程私有 Java虚拟机栈线程私有，生命周期和线程一样，描述的是方法运行的内存模型，每个方法在执行的时候都会创建一个栈帧用于存储局部变量、动态链接、方法出口等信息。每个方法的执行与结束都对应栈帧的入栈、出栈。 局部变量表存放了各种基本数据类型和对">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jvm-内存模型">
+<meta property="og:url" content="http://example.com/2021/02/10/jvm-%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="内存模型 程序计数器存放当前执行字节码地址。一个处理器只会执行一条指令，因此多线程切换上下文的时候为了能正确执行下一条指令，各个线程需要独立存储，故这块是线程私有 Java虚拟机栈线程私有，生命周期和线程一样，描述的是方法运行的内存模型，每个方法在执行的时候都会创建一个栈帧用于存储局部变量、动态链接、方法出口等信息。每个方法的执行与结束都对应栈帧的入栈、出栈。 局部变量表存放了各种基本数据类型和对">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-354d31865d1fb3362f5a1ca938f9a770_1440w.jpg">
+<meta property="article:published_time" content="2021-02-10T11:21:46.000Z">
+<meta property="article:modified_time" content="2021-02-13T07:55:59.376Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic1.zhimg.com/80/v2-354d31865d1fb3362f5a1ca938f9a770_1440w.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-jvm-内存模型" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/02/10/jvm-%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" class="article-date">
+  <time datetime="2021-02-10T11:21:46.000Z" itemprop="datePublished">2021-02-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      jvm-内存模型
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="内存模型"><a href="#内存模型" class="headerlink" title="内存模型"></a>内存模型</h4><p><img src="https://pic1.zhimg.com/80/v2-354d31865d1fb3362f5a1ca938f9a770_1440w.jpg" alt="img"></p>
+<h5 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h5><p>存放当前执行字节码地址。一个处理器只会执行一条指令，因此多线程切换上下文的时候为了能正确执行下一条指令，各个线程需要独立存储，故这块是<strong>线程私有</strong></p>
+<h5 id="Java虚拟机栈"><a href="#Java虚拟机栈" class="headerlink" title="Java虚拟机栈"></a>Java虚拟机栈</h5><p>线程私有，生命周期和线程一样，描述的是方法运行的内存模型，每个方法在执行的时候都会创建一个<strong>栈帧</strong>用于存储局部变量、动态链接、方法出口等信息。每个方法的执行与结束都对应<strong>栈帧</strong>的入栈、出栈。</p>
+<p>局部变量表存放了各种基本数据类型和对象应用（reference类型），其中64位的long数据会占用2个局部变量（slot）。局部变量表所需的空间在编译期间完成分配，当进去一个方法时，所需的空间是确定的，故当方法递归次数过多的时候存在栈溢出分险。</p>
+<h5 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h5><p>与Java虚拟机栈类似，不同之处在于服务对象是本地方法，不是Java方法。</p>
+<h5 id="Java堆"><a href="#Java堆" class="headerlink" title="Java堆"></a>Java堆</h5><p>绝大部分对象在这里分配，按照垃圾回收模式可将堆分为：eden、survivor</p>
+<h5 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h5><p>线程共享，用户存储虚拟机加载的类、常量、静态变量、编译后的代码数据等，为Java堆的逻辑部分，别名Non-heap 为了和堆区分。通过反射获取到的类型、方法名、字段名称、访问修饰符等信息就是从方法区获取到的。在jdk1.8中也就是Metaspace内存溢出，可以通过参数JVM参数-XX:MetaspaceSize和-XX:MaxMetaspaceSize设置Metaspace的空间大小。jdk1.8后<strong>方法区（Method Area）</strong>被元空间(Metaspace)代替。</p>
+<h5 id="运行时常量池"><a href="#运行时常量池" class="headerlink" title="运行时常量池"></a>运行时常量池</h5><p>方法区的一部分，用于存放编译时的生成的字面量、符号引用，</p>
+<h5 id="对象的创建"><a href="#对象的创建" class="headerlink" title="对象的创建"></a>对象的创建</h5><p>？</p>
+<h5 id="对象的内存布局"><a href="#对象的内存布局" class="headerlink" title="对象的内存布局"></a>对象的内存布局</h5><p>对象头、实例数据、对齐填充。</p>
+<p>对象头：1、对象自身运行时数据，如hashcode、锁标志、gc分代年龄等等。2、类型指针，指向类的元数据。</p>
+<p>实例数据：代码定义的数据，默认分配顺序：long/double、int、short、chart、bytes/boolean、</p>
+<p>对齐空间：占位符，对象的起始地址必须是8的倍数，故对象的存储空间必须是8的倍数，对象头一般是8/16，但是实例数据不一定，故需要对齐空间。</p>
+<h5 id="对象的访问定位"><a href="#对象的访问定位" class="headerlink" title="对象的访问定位"></a>对象的访问定位</h5><h6 id="具柄方式"><a href="#具柄方式" class="headerlink" title="具柄方式"></a>具柄方式</h6><p>reference指向堆中生成句柄池地址，包含实例地址、类型地址。</p>
+<h6 id="直接指针（hotspot）"><a href="#直接指针（hotspot）" class="headerlink" title="直接指针（hotspot）"></a>直接指针（hotspot）</h6><p>reference存放的是对象的地址，对象里面存放到对象类型的指针</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/02/10/jvm-%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" data-id="ckl3fedns0000aym08yv10dje" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2021/02/10/ThradPoolExecutor/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ThradPoolExecutor</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/02/10/jvm-%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">jvm-内存模型</a>
+          </li>
+        
+          <li>
+            <a href="/2021/02/10/ThradPoolExecutor/">ThradPoolExecutor</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/18/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/">设计模式-代理模式</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/">设计模式-观察者模式</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/29/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/">设计模式-组合模式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
